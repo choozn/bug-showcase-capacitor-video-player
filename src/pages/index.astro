@@ -1,0 +1,20 @@
+<script>
+    import { CapacitorVideoPlayer, type capVideoPlayerOptions } from "capacitor-video-player";
+    
+    document.getElementById("play")?.addEventListener("click", async () => {
+      const playerOptions: capVideoPlayerOptions = {
+        url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        mode: "embedded",
+        playerId: "player",
+        componentTag: "div",
+      };
+    
+      const player = await CapacitorVideoPlayer.initPlayer(playerOptions);
+      const res = await CapacitorVideoPlayer.echo({value: "hi"});
+      console.log({player, res});
+    })
+</script>
+<body>
+    <div id="player"></div>
+    <button id="play">Test</button>
+</body>    
